@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const config = {
-  baseURL: 'http://localhost:3000',
-};
+const instance = axios.create({
+  baseURL: process.env.VUE_APP_API_URL,
+});
 
 async function signupUser(payload) {
   try {
-    return await axios.post(`${config.baseURL}/signup`, payload);
+    return await instance.post('signup', payload);
   } catch (error) {
     console.log(error);
   }
