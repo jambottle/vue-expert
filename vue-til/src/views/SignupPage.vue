@@ -1,4 +1,5 @@
 <template>
+  <h1>Create Your Account</h1>
   <SignupForm />
 </template>
 
