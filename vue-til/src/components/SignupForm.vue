@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <div>
       <label for="username">ID: </label>
       <input id="username" type="text" v-model="username" />
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { signupUser } from '@/api';
+
 export default {
   data() {
     return {
@@ -24,6 +26,21 @@ export default {
       password: '',
       nickname: '',
     };
+  },
+
+  methods: {
+    async submitForm() {
+      console.log('Submission has started.');
+
+      const formData = {
+        username: this.username,
+        password: this.password,
+        nickname: this.nickname,
+      };
+      await signupUser(formData);
+
+      console.log('Submission is complete.');
+    },
   },
 };
 </script>
