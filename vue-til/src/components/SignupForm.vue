@@ -37,16 +37,20 @@ export default {
 
   methods: {
     async submitForm() {
-      const formData = {
-        username: this.username,
-        password: this.password,
-        nickname: this.nickname,
-      };
+      try {
+        const formData = {
+          username: this.username,
+          password: this.password,
+          nickname: this.nickname,
+        };
 
-      const { data } = await signupUser(formData);
-      this.logMessage = `${data.username} 님의 회원가입을 축하합니다! 🥳`;
+        const { data } = await signupUser(formData);
+        this.logMessage = `${data.username} 님의 회원가입을 축하합니다! 🥳`;
 
-      this.resetForm();
+        this.resetForm();
+      } catch (error) {
+        console.log(error);
+      }
     },
     resetForm() {
       this.username = '';

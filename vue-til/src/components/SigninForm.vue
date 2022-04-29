@@ -32,15 +32,19 @@ export default {
 
   methods: {
     async submitForm() {
-      const formData = {
-        username: this.username,
-        password: this.password,
-      };
+      try {
+        const formData = {
+          username: this.username,
+          password: this.password,
+        };
 
-      const { data } = await signinUser(formData);
-      this.logMessage = `${data.user.username} 님, 환영합니다! 👋`;
+        const { data } = await signinUser(formData);
+        this.logMessage = `${data.user.username} 님, 환영합니다! 👋`;
 
-      this.resetForm();
+        this.resetForm();
+      } catch (error) {
+        console.log(error);
+      }
     },
     resetForm() {
       this.username = '';
