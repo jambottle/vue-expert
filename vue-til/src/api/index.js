@@ -12,4 +12,12 @@ async function signupUser(payload) {
   }
 }
 
-export { signupUser };
+async function signinUser(payload) {
+  try {
+    return await instance.post('login', payload);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { signupUser, signinUser };

@@ -1,5 +1,6 @@
 <template>
-  <form>
+  <!-- form section -->
+  <form @submit.prevent="submitForm">
     <div>
       <label for="username">ID: </label>
       <input id="username" type="text" v-model="username" />
@@ -10,15 +11,41 @@
     </div>
     <button type="submit">Sign In</button>
   </form>
+
+  <!-- log section -->
+  <p>{{ logMessage }}</p>
 </template>
 
 <script>
+import { signinUser } from '@/api';
+
 export default {
   data() {
     return {
+      // form data
       username: '',
       password: '',
+      // log data
+      logMessage: '',
     };
+  },
+
+  methods: {
+    async submitForm() {
+      const formData = {
+        username: this.username,
+        password: this.password,
+      };
+
+      const { data } = await signinUser(formData);
+      this.logMessage = `${data.user.username} 님, 환영합니다! 👋`;
+
+      this.resetForm();
+    },
+    resetForm() {
+      this.username = '';
+      this.password = '';
+    },
   },
 };
 </script>
