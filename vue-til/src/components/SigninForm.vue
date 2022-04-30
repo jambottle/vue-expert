@@ -39,11 +39,11 @@ export default {
         };
 
         const { data } = await signinUser(formData);
-        this.logMessage = `${data.user.username} 님, 환영합니다! 👋`;
-
-        this.resetForm();
+        this.logMessage = `Hello, ${data.user.username}! 👋`;
       } catch (error) {
-        console.log(error);
+        this.logMessage = `${error.message} (${error.response.statusText}).`;
+      } finally {
+        this.resetForm();
       }
     },
     resetForm() {

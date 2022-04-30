@@ -4,20 +4,12 @@ const instance = axios.create({
   baseURL: process.env.VUE_APP_API_URL,
 });
 
-async function signupUser(payload) {
-  try {
-    return await instance.post('signup', payload);
-  } catch (error) {
-    console.log(error);
-  }
+function signupUser(payload) {
+  return instance.post('signup', payload);
 }
 
-async function signinUser(payload) {
-  try {
-    return await instance.post('login', payload);
-  } catch (error) {
-    console.log(error);
-  }
+function signinUser(payload) {
+  return instance.post('login', payload);
 }
 
 export { signupUser, signinUser };

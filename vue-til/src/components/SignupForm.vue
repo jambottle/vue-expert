@@ -45,11 +45,11 @@ export default {
         };
 
         const { data } = await signupUser(formData);
-        this.logMessage = `${data.username} 님의 회원가입을 축하합니다! 🥳`;
-
-        this.resetForm();
+        this.logMessage = `Welcome, ${data.username}! 🥳`;
       } catch (error) {
-        console.log(error);
+        this.logMessage = `${error.message} (${error.response.statusText}).`;
+      } finally {
+        this.resetForm();
       }
     },
     resetForm() {
