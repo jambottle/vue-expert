@@ -9,7 +9,9 @@
       <label for="password">PW: </label>
       <input id="password" type="text" v-model="password" />
     </div>
-    <button type="submit">Sign In</button>
+    <button type="submit" :disabled="!isUsernameValid || !password">
+      Sign In
+    </button>
   </form>
 
   <!-- log section -->
@@ -18,6 +20,7 @@
 
 <script>
 import { signinUser } from '@/api';
+import { validateEmail } from '@/utils/validation';
 
 export default {
   data() {
@@ -28,6 +31,12 @@ export default {
       // log data
       logMessage: '',
     };
+  },
+
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
   },
 
   methods: {

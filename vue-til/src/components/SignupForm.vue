@@ -13,7 +13,12 @@
       <label for="nickname">Nickname: </label>
       <input id="nickname" type="text" v-model="nickname" />
     </div>
-    <button type="submit">Sign Up</button>
+    <button
+      type="submit"
+      :disabled="!isUsernameValid || !password || !nickname"
+    >
+      Sign Up
+    </button>
   </form>
 
   <!-- log section -->
@@ -22,6 +27,7 @@
 
 <script>
 import { signupUser } from '@/api';
+import { validateEmail } from '@/utils/validation';
 
 export default {
   data() {
@@ -33,6 +39,12 @@ export default {
       // log data
       logMessage: '',
     };
+  },
+
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
   },
 
   methods: {
