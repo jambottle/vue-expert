@@ -12,3 +12,28 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  background-color: #f7f6f9;
+}
+
+a {
+  text-decoration: none;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  font-size: 1.4rem;
+}
+</style>
