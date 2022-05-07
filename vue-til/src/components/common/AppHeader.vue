@@ -1,17 +1,17 @@
 <template>
-  <header>
-    <div>
-      <router-link class="home" to="/">TIL</router-link>
+  <header class="header">
+    <div class="header__logo">
+      <router-link to="/">TIL</router-link>
     </div>
-    <nav>
-      <router-link class="menu" to="/signin">Sign In</router-link>
-      <router-link class="menu" to="/signup">Sign Up</router-link>
+    <nav class="header__menu">
+      <router-link to="/signin">Sign In</router-link>
+      <router-link to="/signup">Sign Up</router-link>
     </nav>
   </header>
 </template>
 
 <style lang="scss" scoped>
-header {
+.header {
   position: fixed;
   top: 0;
   z-index: 2;
@@ -20,29 +20,25 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px 20px;
   background-color: #927dfc;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
 
-  a {
-    text-decoration: none;
+  &__logo a {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 900;
+  }
 
-    &.home {
+  &__menu a {
+    margin-left: 10px;
+    color: #dedede;
+    font-size: 18px;
+
+    &.router-link-exact-active {
       color: #ffffff;
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    &.menu {
-      margin-left: 10px;
-      color: #dedede;
-      font-size: 18px;
-
-      &.router-link-exact-active {
-        color: #ffffff;
-        font-weight: 700;
-      }
+      font-weight: 700;
     }
   }
 }
