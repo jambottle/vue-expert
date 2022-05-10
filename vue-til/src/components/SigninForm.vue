@@ -69,6 +69,7 @@ export default {
         const { data } = await signinUser(formData);
         this.logMessage = `Hello, ${data.user.username}! 👋`;
 
+        this.$store.commit('setUsername', data.user.username);
         this.$router.push('/main');
       } catch (error) {
         this.logMessage = `${error.message} (${error.response.statusText}).`;
