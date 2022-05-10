@@ -33,7 +33,7 @@ a {
   width: 100%;
   height: 100%;
 
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 1.4rem;
 }
 </style>
