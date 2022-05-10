@@ -13,6 +13,9 @@ const store = createStore({
     setUsername(state, payload) {
       state.username = payload;
     },
+    resetUsername(state) {
+      state.username = '';
+    },
   },
 });
 

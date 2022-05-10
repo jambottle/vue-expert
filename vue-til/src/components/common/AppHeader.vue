@@ -7,6 +7,7 @@
       <!-- (1) 로그인에 성공한 이후 -->
       <template v-if="$store.getters.isSignedIn">
         <span>{{ $store.state.username }}</span>
+        <a href="javascript:;" @click="signoutUser">Sign Out</a>
       </template>
       <!-- (2) 로그인에 성공하기 전 -->
       <template v-else>
@@ -16,6 +17,17 @@
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    signoutUser() {
+      this.$store.commit('resetUsername');
+      this.$router.push('/signin');
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .header {
