@@ -4,8 +4,15 @@
       <router-link to="/">TIL</router-link>
     </div>
     <nav class="header__menu">
-      <router-link to="/signin">Sign In</router-link>
-      <router-link to="/signup">Sign Up</router-link>
+      <!-- (1) 로그인에 성공한 이후 -->
+      <template v-if="$store.getters.isSignedIn">
+        <span>{{ $store.state.username }}</span>
+      </template>
+      <!-- (2) 로그인에 성공하기 전 -->
+      <template v-else>
+        <router-link to="/signin">Sign In</router-link>
+        <router-link to="/signup">Sign Up</router-link>
+      </template>
     </nav>
   </header>
 </template>

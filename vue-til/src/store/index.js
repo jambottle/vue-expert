@@ -4,6 +4,11 @@ const store = createStore({
   state: {
     username: '',
   },
+  getters: {
+    isSignedIn(state) {
+      return state.username !== '';
+    },
+  },
   mutations: {
     setUsername(state, payload) {
       state.username = payload;
