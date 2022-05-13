@@ -70,6 +70,7 @@ export default {
         this.logMessage = `Hello, ${data.user.username}! 👋`;
 
         this.$store.commit('setUsername', data.user.username);
+        this.$store.commit('setUserToken', data.token);
         this.$router.push('/main');
       } catch (error) {
         this.logMessage = `${error.message} (${error.response.statusText}).`;

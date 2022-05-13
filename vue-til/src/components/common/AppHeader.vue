@@ -1,12 +1,16 @@
 <template>
   <header class="header">
     <div class="header__logo">
-      <router-link to="/">TIL</router-link>
+      <router-link to="/">
+        TIL
+        <span v-if="$store.getters.isUserSignedIn">
+          by {{ $store.state.username }}
+        </span>
+      </router-link>
     </div>
     <nav class="header__menu">
       <!-- (1) 로그인에 성공한 이후 -->
-      <template v-if="$store.getters.isSignedIn">
-        <span>{{ $store.state.username }}</span>
+      <template v-if="$store.getters.isUserSignedIn">
         <a href="javascript:;" @click="signoutUser">Sign Out</a>
       </template>
       <!-- (2) 로그인에 성공하기 전 -->
@@ -48,6 +52,11 @@ export default {
     color: #ffffff;
     font-size: 30px;
     font-weight: 900;
+
+    span {
+      font-size: 16px;
+      font-weight: 500;
+    }
   }
 
   &__menu a {

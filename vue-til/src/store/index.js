@@ -3,9 +3,10 @@ import { createStore } from 'vuex';
 const store = createStore({
   state: {
     username: '',
+    userToken: '',
   },
   getters: {
-    isSignedIn(state) {
+    isUserSignedIn(state) {
       return state.username !== '';
     },
   },
@@ -15,6 +16,9 @@ const store = createStore({
     },
     resetUsername(state) {
       state.username = '';
+    },
+    setUserToken(state, payload) {
+      state.userToken = payload;
     },
   },
 });
