@@ -19,4 +19,8 @@ function signinUser(payload) {
   return instance.post('login', payload);
 }
 
-export { signupUser, signinUser };
+function fetchPosts() {
+  return instance.get('posts');
+}
+
+export { signupUser, signinUser, fetchPosts };

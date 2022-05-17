@@ -1,8 +1,36 @@
 <template>
   <main class="page">
-    <h1 class="page__title">Main</h1>
+    <h1 class="page__title">Today I Learned</h1>
+    <ul>
+      <li v-for="postItem in postItems" :key="postItem._id">
+        {{ postItem.title }}
+      </li>
+    </ul>
   </main>
 </template>
+
+<script>
+import { fetchPosts } from '@/api';
+
+export default {
+  data() {
+    return {
+      postItems: [],
+    };
+  },
+
+  methods: {
+    async fetchData() {
+      const { data } = await fetchPosts();
+      this.postItems = data.posts;
+    },
+  },
+
+  created() {
+    this.fetchData();
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .page {
