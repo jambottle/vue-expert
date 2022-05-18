@@ -1,28 +1,35 @@
 <template>
   <main class="page">
     <h1 class="page__title">Today I Learned</h1>
-    <ul>
-      <li v-for="postItem in postItems" :key="postItem._id">
-        {{ postItem.title }}
-      </li>
+    <ul class="post-list">
+      <PostItem
+        v-for="postItem in postList"
+        :key="postItem._id"
+        :item="postItem"
+      />
     </ul>
   </main>
 </template>
 
 <script>
+import PostItem from '@/components/posts/PostItem.vue';
 import { fetchPosts } from '@/api';
 
 export default {
+  components: {
+    PostItem,
+  },
+
   data() {
     return {
-      postItems: [],
+      postList: [],
     };
   },
 
   methods: {
     async fetchData() {
       const { data } = await fetchPosts();
-      this.postItems = data.posts;
+      this.postList = data.posts;
     },
   },
 
@@ -46,27 +53,12 @@ export default {
     text-align: center;
   }
 
-  ul {
+  .post-list {
     display: flex;
     flex-wrap: wrap;
 
     padding: 0;
     list-style: none;
-  }
-
-  li {
-    position: relative;
-    flex-grow: 1;
-
-    width: 320px;
-    height: 250px;
-    margin: 7px;
-    border-radius: 3px;
-    padding: 10px 20px;
-
-    background-color: #ffffff;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
-    -webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   }
 }
 </style>
