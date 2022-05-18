@@ -45,5 +45,28 @@ export default {
     font-weight: 600;
     text-align: center;
   }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    flex-grow: 1;
+
+    width: 320px;
+    height: 250px;
+    margin: 7px;
+    border-radius: 3px;
+    padding: 10px 20px;
+
+    background-color: #ffffff;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+    -webkit-box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  }
 }
 </style>
