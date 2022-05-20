@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import { signinUser } from '@/api';
 import { validateEmail } from '@/utils/validation';
 
 export default {
@@ -66,11 +65,7 @@ export default {
           password: this.password,
         };
 
-        const { data } = await signinUser(formData);
-        this.logMessage = `Hello, ${data.user.username}! 👋`;
-
-        this.$store.commit('setUsername', data.user.username);
-        this.$store.commit('setUserToken', data.token);
+        await this.$store.dispatch('SIGNIN_USER', formData);
         this.$router.push('/main');
       } catch (error) {
         this.logMessage = `${error.message} (${error.response.statusText}).`;
