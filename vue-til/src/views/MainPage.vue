@@ -9,6 +9,10 @@
       />
     </ul>
     <AppSpinner v-else />
+
+    <router-link to="/create" class="create-button">
+      <i class="icon ion-md-add" />
+    </router-link>
   </main>
 </template>
 
@@ -67,6 +71,26 @@ export default {
 
     padding: 0;
     list-style: none;
+  }
+
+  .create-button {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+
+    background-color: #fe9616;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
   }
 }
 </style>
