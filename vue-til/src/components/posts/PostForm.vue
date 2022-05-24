@@ -1,18 +1,61 @@
 <template>
   <section class="form-wrapper">
-    <form class="form">
+    <form class="form" @submit.prevent="submitForm">
       <div>
         <label class="form__label" for="title">Title:</label>
-        <input class="form__input" id="title" type="text" />
+        <input class="form__input" id="title" type="text" v-model="title" />
       </div>
       <div>
         <label class="form__label" for="content">Content:</label>
-        <textarea class="form__input" id="content" type="text" rows="5" />
+        <textarea
+          class="form__input"
+          id="content"
+          type="text"
+          rows="5"
+          v-model="content"
+        />
       </div>
       <button class="form__button" type="submit">Post Now</button>
     </form>
+
+    <p class="log-message">{{ logMessage }}</p>
   </section>
 </template>
+
+<script>
+import { createPost } from '@/api';
+
+export default {
+  data() {
+    return {
+      // form data
+      title: '',
+      content: '',
+      // log data
+      logMessage: '',
+    };
+  },
+
+  methods: {
+    async submitForm() {
+      try {
+        await createPost({
+          title: this.title,
+          contents: this.content,
+        });
+      } catch (error) {
+        this.logMessage = `${error.message} (${error.response.data.message}).`;
+      } finally {
+        this.resetForm();
+      }
+    },
+    resetForm() {
+      this.title = '';
+      this.content = '';
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .form-wrapper {
@@ -67,6 +110,13 @@
         cursor: not-allowed;
       }
     }
+  }
+
+  .log-message {
+    margin-top: 1.5rem;
+    color: #ff4057;
+    font-size: 1rem;
+    text-align: center;
   }
 }
 </style>
