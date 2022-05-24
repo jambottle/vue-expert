@@ -1,9 +1,8 @@
 <template>
   <section class="form-wrapper">
-    <!-- form section -->
     <form class="form" @submit.prevent="submitForm">
       <div>
-        <label class="form__label" for="username">ID: </label>
+        <label class="form__label" for="username">ID:</label>
         <input
           class="form__input"
           id="username"
@@ -15,7 +14,7 @@
         </p>
       </div>
       <div>
-        <label class="form__label" for="password">PW: </label>
+        <label class="form__label" for="password">PW:</label>
         <input
           class="form__input"
           id="password"
@@ -24,7 +23,7 @@
         />
       </div>
       <div>
-        <label class="form__label" for="nickname">Nickname: </label>
+        <label class="form__label" for="nickname">Nickname:</label>
         <input
           class="form__input"
           id="nickname"
@@ -41,7 +40,6 @@
       </button>
     </form>
 
-    <!-- log section -->
     <p class="log-message">{{ logMessage }}</p>
   </section>
 </template>

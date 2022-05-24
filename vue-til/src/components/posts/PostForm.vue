@@ -2,11 +2,11 @@
   <section class="form-wrapper">
     <form class="form">
       <div>
-        <label class="form__label" for="title">Title: </label>
+        <label class="form__label" for="title">Title:</label>
         <input class="form__input" id="title" type="text" />
       </div>
       <div>
-        <label class="form__label" for="content">Content: </label>
+        <label class="form__label" for="content">Content:</label>
         <textarea class="form__input" id="content" type="text" rows="5" />
       </div>
       <button class="form__button" type="submit">Post Now</button>
