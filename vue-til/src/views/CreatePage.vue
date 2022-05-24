@@ -1,8 +1,19 @@
 <template>
   <main class="page">
     <h1 class="page__title">Create New Post</h1>
+    <PostForm />
   </main>
 </template>
+
+<script>
+import PostForm from '@/components/posts/PostForm.vue';
+
+export default {
+  components: {
+    PostForm,
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .page {
