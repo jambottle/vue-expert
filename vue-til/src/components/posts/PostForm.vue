@@ -14,8 +14,17 @@
           rows="5"
           v-model="content"
         />
+        <p class="validation-text" v-if="isContentTooLong">
+          Content length is limited to less than 200 characters.
+        </p>
       </div>
-      <button class="form__button" type="submit">Post Now</button>
+      <button
+        class="form__button"
+        type="submit"
+        :disabled="!title || isContentTooLong"
+      >
+        Post Now
+      </button>
     </form>
 
     <p class="log-message">{{ logMessage }}</p>
@@ -34,6 +43,12 @@ export default {
       // log data
       logMessage: '',
     };
+  },
+
+  computed: {
+    isContentTooLong() {
+      return this.content.length > 200;
+    },
   },
 
   methods: {
@@ -94,6 +109,16 @@ export default {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       font-family: inherit;
       font-size: 100%;
+    }
+
+    .validation-text {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+      color: #ff4057;
+      font-size: 1rem;
     }
 
     &__button {
