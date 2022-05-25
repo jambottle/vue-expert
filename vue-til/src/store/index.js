@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { signinUser } from '@/api';
+import { signinUser } from '@/api/auth';
 import {
   saveUserToCookie,
   saveAuthToCookie,

@@ -19,7 +19,7 @@
 <script>
 import AppSpinner from '@/components/common/AppSpinner.vue';
 import PostItem from '@/components/posts/PostItem.vue';
-import { fetchPosts } from '@/api';
+import { fetchPosts } from '@/api/posts';
 
 export default {
   components: {

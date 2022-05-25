@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { signupUser } from '@/api';
+import { signupUser } from '@/api/auth';
 import { validateEmail } from '@/utils/validation';
 
 export default {
