@@ -2,7 +2,12 @@
   <li class="post-item">
     <div class="post-item__title">{{ item.title }}</div>
     <div class="post-item__contents">{{ item.contents }}</div>
-    <div class="post-item__time">{{ item.createdAt }}</div>
+
+    <div class="post-item__time">
+      {{ item.createdAt }}
+      <i class="icon ion-md-create" />
+      <i class="icon ion-md-trash" />
+    </div>
   </li>
 </template>
 
@@ -49,8 +54,30 @@ export default {
     bottom: 4px;
     right: 5px;
 
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
     color: #9e9e9e;
     font-size: 14px;
+
+    .icon {
+      color: #364f6b;
+      font-size: 1.3rem;
+      cursor: pointer;
+
+      &.ion-md-trash {
+        padding-right: 0.4rem;
+      }
+
+      &:hover {
+        color: #3fc1c9;
+      }
+
+      &:active {
+        color: #fc5185;
+      }
+    }
   }
 }
 </style>
