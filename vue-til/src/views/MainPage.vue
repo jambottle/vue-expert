@@ -6,6 +6,7 @@
         v-for="postItem in postList"
         :key="postItem._id"
         :item="postItem"
+        @refresh="fetchData"
       />
     </ul>
     <AppSpinner v-else />

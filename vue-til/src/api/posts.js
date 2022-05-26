@@ -4,8 +4,12 @@ function fetchPosts() {
   return instanceForPosts.get('/');
 }
 
-function createPost(payload) {
-  return instanceForPosts.post('/', payload);
+function createPost(postData) {
+  return instanceForPosts.post('/', postData);
 }
 
-export { fetchPosts, createPost };
+function deletePost(postId) {
+  return instanceForPosts.delete(postId);
+}
+
+export { fetchPosts, createPost, deletePost };

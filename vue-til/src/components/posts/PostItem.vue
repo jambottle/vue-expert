@@ -6,17 +6,26 @@
     <div class="post-item__time">
       {{ item.createdAt }}
       <i class="icon ion-md-create" />
-      <i class="icon ion-md-trash" />
+      <i class="icon ion-md-trash" @click="deleteItem" />
     </div>
   </li>
 </template>
 
 <script>
+import { deletePost } from '@/api/posts';
+
 export default {
   props: {
     item: {
       type: Object,
       required: true,
+    },
+  },
+
+  methods: {
+    async deleteItem() {
+      await deletePost(this.item._id);
+      this.$emit('refresh');
     },
   },
 };
