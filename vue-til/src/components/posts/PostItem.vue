@@ -5,7 +5,7 @@
 
     <div class="post-item__time">
       {{ item.createdAt }}
-      <i class="icon ion-md-create" />
+      <i class="icon ion-md-create" @click="updateItem" />
       <i class="icon ion-md-trash" @click="deleteItem" />
     </div>
   </li>
@@ -28,6 +28,9 @@ export default {
         await deletePost(this.item._id);
         this.$emit('refresh');
       }
+    },
+    updateItem() {
+      this.$router.push(`/post/${this.item._id}`);
     },
   },
 };

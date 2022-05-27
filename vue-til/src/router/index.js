@@ -18,8 +18,12 @@ const routes = [
     component: () => import('@/views/MainPage.vue'),
   },
   {
-    path: '/create',
+    path: '/post',
     component: () => import('@/views/CreatePage.vue'),
+  },
+  {
+    path: '/post/:postId',
+    component: () => import('@/views/UpdatePage.vue'),
   },
   {
     path: '/:pathMatch(.*)*',

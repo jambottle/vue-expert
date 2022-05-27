@@ -11,7 +11,7 @@
     </ul>
     <AppSpinner v-else />
 
-    <router-link to="/create" class="create-button">
+    <router-link to="/post" class="create-button">
       <i class="icon ion-md-add" />
     </router-link>
   </main>
